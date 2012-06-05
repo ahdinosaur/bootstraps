@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# TODO
+# autopopulate EXECS with executables in 'templates/'
+
 EXECS="regenerate_motd"
 for f in $EXECS; do
   #echo "file $f"
