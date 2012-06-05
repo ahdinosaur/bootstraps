@@ -1,0 +1,10 @@
+#!/bin/bash
+
+EXECS="regenerate_motd"
+for f in $EXECS; do
+  #echo "file $f"
+  for x in $(find ./configs/ -name "$f"); do
+    echo "repaired $x to be executable"
+    chmod +x "$x"
+  done
+done
