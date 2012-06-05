@@ -1,0 +1,20 @@
+domain: emerald-triangle
+motd:
+  text: \nLove is that which enables choice.\nLove is always stronger than Fear.\nAlways choose on the basis of Love.\n
+users:
+  - 
+    name: michael
+    gecos: Michael Williams
+    uid: 1500
+    gid: 1500
+    home: /home/michael
+    shell: /bin/bash
+    groupname: michael
+  - 
+    name: daniel
+    gecos: Daniel Leja
+    uid: 1501
+    gid: 1501
+    home: /home/daniel
+    shell: /bin/bash
+    groupname: daniel

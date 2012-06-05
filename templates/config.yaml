@@ -1,0 +1,8 @@
+motd:
+  - motd
+users:
+  - users
+main:
+  - promises.cf
+  - failsafe.cf
+  - cfengine_stdlib.cf

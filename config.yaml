@@ -1,0 +1,22 @@
+# directory with configuration variables for hosts ($hostname.yaml)
+host_data: hosts
+
+# directory with configuration variables for whole groups (kinda includes for
+# host_data's YAMLs); defaults to $host_data/groups
+group_data: groups
+
+# target directory for generated configuration
+config_output_dir: configs
+
+# directory with config templates
+template_dir: templates
+
+# what to do if two groups or group and host-level file provide the same
+# service? default (no "merge" key or "merge: false") is to be
+# backward-compatible with cfgen 0.x and to replace whole service
+merge: true
+
+# these services will always be generated, no matter if they're mentioned in
+# $hostname.yaml or not
+always_include:
+  - main
