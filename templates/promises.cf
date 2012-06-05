@@ -11,11 +11,10 @@ body common control
                    };
 
  inputs => { [% USE dir = Directory('templates/') %]# core
-             [% FOREACH file = dir.files %][% IF (match = file.path.match("templates/(.*\.cf)")) %]"[% match.join("") %]",
+             [% FOREACH file = dir.files %][% IF ((match = file.path.match("templates/(.*\.cf)")) && file.name != "promises.cf" && file.name != "failsafe.cf") %]"[% match.join("") %]",
              [% ELSE %][% END %][% END %]# extra
              [% FOREACH subdir = dir.dirs %][% subdir.scan %][% FOREACH file = subdir.files %][% IF (match = file.path.match("templates/(.*\.cf)")) %]"[% match.join("") %]",
-             [% ELSE %][% END %][% END %][% END %]
-           };
+             [% ELSE %][% END %][% END %][% END %]};
 
  version => "Community Promises.cf 1.0.0";
 }
