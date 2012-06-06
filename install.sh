@@ -1,6 +1,6 @@
 #!/bin/sh
 
-alias cd=pushd
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 echo "installing sudo"
 aptitude install -y sudo
@@ -29,8 +29,8 @@ sudo -H -u git chown git:git "hackercoop.pub"
 sudo -H -u git bin/gitolite setup -pk "hackercoop.pub"
 
 # move repo to gitolite repos
-git clone --mirror $(dirname $0) "/home/git/repositories/$(basename $(dirname $0)).git"
-sudo -H -u git chown -R git:git "/home/git/repositories/$(basename $(dirname $0)).git"
+git clone --mirror $(dirname $0) "/home/git/repositories/$(basename $DIR).git"
+sudo -H -u git chown -R git:git "/home/git/repositories/$(basename $DIR).git"
 sudo -H -u git bin/gitolite setup
 
 # add repo to gitolite config
