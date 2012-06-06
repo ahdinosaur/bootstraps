@@ -5,8 +5,6 @@ DIR="$( cd $( dirname $0 ) && pwd )"
 echo "installing sudo"
 aptitude install -y sudo
 
-echo "installing git"
-aptitude install -y git
 echo "adding git user"
 adduser --system --shell $(which git-shell) --gecos 'git version control' --group --disabled-password --home /home/git git
 
