@@ -1,4 +1,0 @@
-#!/bin/sh
-
-/bin/uname -snrvm > /var/run/motd
-[ -f /etc/motd.tail ] && /bin/cat /etc/motd.tail >> /var/run/motd
