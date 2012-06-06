@@ -11,6 +11,7 @@ adduser --system --shell $(which git-shell) --gecos 'git version control' --grou
 echo "making hackercoop user"
 adduser --shell /bin/bash --gecos 'hacker coop' --home /home/hackercoop hackercoop
 cd "/home/hackercoop/"
+sudo -H -u hackercoop mkdir .ssh
 sudo -H -u hackercoop ssh-keygen -t rsa -b 2048 -P "" -f ".ssh/id_rsa"
 cp "/home/hackercoop/.ssh/id_rsa.pub" "/home/git/hackercoop.pub"
 
@@ -18,7 +19,8 @@ cp "/home/hackercoop/.ssh/id_rsa.pub" "/home/git/hackercoop.pub"
 cd "/home/git/"
 sudo -H -u git mkdir bin
 sudo -H -u git git clone git://github.com/sitaramc/gitolite
-sudo -H -u git giolite/install -ln
+sudo -H -u git gitolite/install -ln
+sudo -H -u git chown git:git "hackercoop.pub"
 sudo -H -u git bin/gitolite setup -pk "hackercoop.pub"
 
 # move repo to gitolite repos
@@ -27,7 +29,8 @@ sudo -H -u git chown -R git:git "/home/git/repositories/$(basename $0).git"
 sudo -H -u git bin/gitolite setup
 
 # add repo to gitolite config
-sudo -H -u git git clone git@localhost:gitolite-admin.git
+cd "/home/hackercoop"
+sudo -H -u hackercoop git clone git@localhost:gitolite-admin.git
 cd "gitolite-admin"
 
 
